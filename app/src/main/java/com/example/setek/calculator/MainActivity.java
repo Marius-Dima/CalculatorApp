@@ -62,7 +62,6 @@ public class MainActivity extends AppCompatActivity {
 
         EditText secondNumber = (EditText) findViewById(R.id.number2);
         secondNumber.setText("");
-
     }
 
     private double getTextAreaValue(@IdRes int id) {

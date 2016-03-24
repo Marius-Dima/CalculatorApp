@@ -7,6 +7,7 @@ import android.util.Log;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.TextView;
+import android.widget.Toast;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -20,46 +21,49 @@ public class MainActivity extends AppCompatActivity {
 
     public void onButtonClick(View view) {
         double number1 = 0, number2 = 0;
-        String answer = null;
+        String result = null;
 
-        TextView t = (TextView) findViewById(R.id.result);
+        TextView resultView = (TextView) findViewById(R.id.result);
 
         try {
             number1 = getTextAreaValue(R.id.number1);
             number2 = getTextAreaValue(R.id.number2);
         } catch (Exception e) {
+            Toast.makeText(MainActivity.this, "Invalid argument supplied, please use numbers only!", Toast.LENGTH_SHORT).show();
             Log.e(this.getLocalClassName(), "Invalid argument(s) supplied, please use number(s)!");
         }
 
         if (view.getId() == R.id.addButton) {
-            answer = String.valueOf(calculator.add(number1, number2));
+            result = String.valueOf(calculator.add(number1, number2));
         }
 
         if (view.getId() == R.id.substractButton) {
-            answer = String.valueOf(calculator.subtract(number1, number2));
+            result = String.valueOf(calculator.subtract(number1, number2));
         }
 
         if (view.getId() == R.id.multiplyButton) {
-            answer = String.valueOf(calculator.multiply(number1, number2));
+            result = String.valueOf(calculator.multiply(number1, number2));
         }
 
         if (view.getId() == R.id.divideButton) {
-            answer = String.valueOf(calculator.divide(number1, number2));
+            result = String.valueOf(calculator.divide(number1, number2));
         }
 
-        if (view.getId() == R.id.clearButton) {
-            EditText firstNumber = (EditText) findViewById(R.id.number1);
-            firstNumber.setText("");
-
-            EditText secondNumber = (EditText) findViewById(R.id.number2);
-            secondNumber.setText("");
-
-            t.clearComposingText();
-        }
-
-        t.setText(answer);
+        resultView.setText(result);
     }
 
+    public void onClearButton(View view) {
+        TextView textView = (TextView) findViewById(R.id.result);
+        textView.clearComposingText();
+        textView.setText("");
+
+        EditText firstNumber = (EditText) findViewById(R.id.number1);
+        firstNumber.setText("");
+
+        EditText secondNumber = (EditText) findViewById(R.id.number2);
+        secondNumber.setText("");
+
+    }
 
     private double getTextAreaValue(@IdRes int id) {
         EditText textField = (EditText) findViewById(id);

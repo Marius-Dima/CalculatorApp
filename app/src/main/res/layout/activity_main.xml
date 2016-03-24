@@ -71,7 +71,7 @@
             android:layout_width="49dp"
             android:layout_height="35dp"
             android:layout_gravity="top"
-            android:onClick="onButtonClick"
+            android:onClick="onClearButton"
             android:text="C"
             android:textAlignment="gravity" />
 

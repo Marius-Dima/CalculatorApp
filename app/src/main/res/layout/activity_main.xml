@@ -5,7 +5,7 @@
     android:layout_height="wrap_content"
     android:orientation="vertical"
     android:padding="10dp"
-    tools:context=".MainActivity">
+    tools:context=".main.MainActivity">
 
     <LinearLayout
         android:layout_width="wrap_content"
@@ -71,7 +71,7 @@
             android:layout_width="49dp"
             android:layout_height="35dp"
             android:layout_gravity="top"
-            android:onClick="onClearButton"
+            android:onClick="onClearButtonClick"
             android:text="C"
             android:textAlignment="gravity" />
 

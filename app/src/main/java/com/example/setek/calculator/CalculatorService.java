@@ -1,8 +1,7 @@
 package com.example.setek.calculator;
 
-import android.support.v7.app.AppCompatActivity;
 
-public class CalculatorService extends AppCompatActivity {
+public class CalculatorService {
 
     public double add(double number1, double number2) {
         return number1 + number2;
